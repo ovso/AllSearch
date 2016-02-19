@@ -15,7 +15,7 @@ public class MyApplication extends Application {
         return mQuery;
     }
 
-    private boolean searchMode = true; // multiple false, sync true
+    private boolean searchMode = false; // multiple false, sync true
     public void setSearchMode(boolean mode) {
         searchMode = mode;
     }

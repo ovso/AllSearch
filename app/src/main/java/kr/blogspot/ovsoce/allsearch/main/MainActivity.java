@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         setSupportActionBar(toolbar);
 
         mSearchView = (MaterialSearchView) findViewById(R.id.search_view);
+        mSearchView.setHint(getString(R.string.text_searchview_hint));
+        mSearchView.setHintTextColor(0x8833dd);
+        //mSearchView.setBackgroundColor(android.R.color.background_dark);
+
 
         mSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
@@ -175,13 +179,13 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     }
 
     @Override
-    public void hideToolbar() {
-        findViewById(R.id.toolbar_container).setVisibility(View.GONE);
-    }
+    public void toolbarEnable(boolean eanble) {
+        if(eanble) {
+            findViewById(R.id.toolbar_container).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.toolbar_container).setVisibility(View.GONE);
+        }
 
-    @Override
-    public void showToolbar() {
-        findViewById(R.id.toolbar_container).setVisibility(View.VISIBLE);
     }
 
     @Override
