@@ -3,6 +3,7 @@ package kr.blogspot.ovsoce.allsearch.main;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -153,6 +154,23 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.getRegisteredFragment(tab.getPosition());
+                fragment.getPresenter().onQueryTextSubmit(getApplicationContext(), fragment.getArguments());
+            }
+        });
 
     }
 
@@ -179,13 +197,14 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     }
 
     @Override
-    public void toolbarEnable(boolean eanble) {
-        if(eanble) {
-            findViewById(R.id.toolbar_container).setVisibility(View.VISIBLE);
-        } else {
-            findViewById(R.id.toolbar_container).setVisibility(View.GONE);
-        }
+    public void hideToolbar() {
+        findViewById(R.id.toolbar_container).setVisibility(View.GONE);
+        mSearchView.closeSearch();
+    }
 
+    @Override
+    public void showToolbar() {
+        findViewById(R.id.toolbar_container).setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -18,6 +18,7 @@ public interface MainPresenter {
         void setToolbarTitle(String title);
         void doMultipleSearch();
         void doSyncSearch();
-        void toolbarEnable(boolean eanble);
+        void hideToolbar();
+        void showToolbar();
     }
 }

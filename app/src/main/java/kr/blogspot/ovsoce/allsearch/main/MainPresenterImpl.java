@@ -21,7 +21,11 @@ public class MainPresenterImpl implements MainPresenter {
         mView.setToolbarTitle(mModel.getToolbarTitle(context));
         boolean searchMode = mModel.isSearchMode(context);
         //mView.setToolbarTitle(mModel.getToolbarTitle(view.getContext()));
-        mView.toolbarEnable(searchMode);
+        if(searchMode) {
+            mView.showToolbar();
+        } else {
+            mView.hideToolbar();
+        }
 
     }
 
@@ -36,7 +40,11 @@ public class MainPresenterImpl implements MainPresenter {
             mModel.setSearchMode(view.getContext());
             boolean searchMode = mModel.isSearchMode(view.getContext());
             //mView.setToolbarTitle(mModel.getToolbarTitle(view.getContext()));
-            mView.toolbarEnable(searchMode);
+            if(searchMode) {
+                mView.showToolbar();
+            } else {
+                mView.hideToolbar();
+            }
         }
     }
 
