@@ -1,5 +1,6 @@
 package kr.blogspot.ovsoce.allsearch.main;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -82,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
             public boolean onQueryTextSubmit(String query) {
 
                 mPresenter.onQueryTextSubmit(getApplicationContext());
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mSearchView.getWindowToken(), 0);
+
                 return true;
             }
 
