@@ -2,6 +2,8 @@ package kr.blogspot.ovsoce.allsearch.main;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -209,6 +212,12 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     }
 
     @Override
+    public void showSnackbar(String msg) {
+        CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.main_content);
+        Snackbar.make(layout, msg,Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onBackPressed() {
         if (mSearchView.isSearchOpen()) {
             mSearchView.closeSearch();
@@ -218,11 +227,25 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
             if(webView.canGoBack()) {
                 webView.goBack();
             } else {
-                super.onBackPressed();
+                exitApp();
             }
         }
     }
-
+    private boolean isExit = false;
+    private void exitApp() {
+        if(isExit) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.app_name, Toast.LENGTH_SHORT).show();
+            isExit = true;
+        }
+        mSearchView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               isExit = false;
+            }
+        }, 1500);
+    }
     @Override
     public void onClick(View v) {
         mPresenter.onClick(v);

@@ -42,6 +42,7 @@ public class MainPresenterImpl implements MainPresenter {
             //mView.setToolbarTitle(mModel.getToolbarTitle(view.getContext()));
             if(searchMode) {
                 mView.showToolbar();
+                mView.showSnackbar(view.getContext().getString(R.string.text_searchview_hint));
             } else {
                 mView.hideToolbar();
             }

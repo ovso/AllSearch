@@ -20,5 +20,6 @@ public interface MainPresenter {
         void doSyncSearch();
         void hideToolbar();
         void showToolbar();
+        void showSnackbar(String msg);
     }
 }
