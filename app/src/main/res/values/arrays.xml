@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="section_name">
+        <item>네이버</item>
+        <item>다음</item>
+        <item>구글</item>
+        <item>줌</item>
+        <item>Bing</item>
+    </string-array>
+    <string-array name="section_url">
+        <item>http://www.naver.com</item>
+        <item>http://www.daum.net</item>
+        <item>http://www.google.com</item>
+        <item>http://www.zum.com</item>
+        <item>http://www.bing.com</item>
+    </string-array>
+    <string-array name="section_search_url">
+        <item>https://search.naver.com/search.naver?query=</item>
+        <item>http://search.daum.net/search?q=</item>
+        <item>https://www.google.co.kr/search?q=</item>
+        <item>http://search.zum.com/search.zum?query=</item>
+        <item>http://www.bing.com/search?q=</item>
+    </string-array>
+</resources>
