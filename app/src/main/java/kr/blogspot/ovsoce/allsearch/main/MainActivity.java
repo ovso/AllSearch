@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -212,7 +213,13 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         if (mSearchView.isSearchOpen()) {
             mSearchView.closeSearch();
         } else {
-            super.onBackPressed();
+            PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+            WebView webView = (WebView) fragment.getView().findViewById(R.id.webview);
+            if(webView.canGoBack()) {
+                webView.goBack();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 

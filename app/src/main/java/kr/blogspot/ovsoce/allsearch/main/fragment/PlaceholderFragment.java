@@ -65,5 +65,4 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
             mWebview.loadUrl(url);
         }
     }
-
 }
