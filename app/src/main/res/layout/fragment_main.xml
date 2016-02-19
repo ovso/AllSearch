@@ -4,15 +4,16 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity$PlaceholderFragment"
     android:orientation="vertical">
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:visibility="gone"/>
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
     </WebView>
-
+    <ProgressBar
+        android:id="@+id/webview_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 </LinearLayout>

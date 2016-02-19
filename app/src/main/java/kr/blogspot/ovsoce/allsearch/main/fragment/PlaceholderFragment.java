@@ -1,5 +1,6 @@
 package kr.blogspot.ovsoce.allsearch.main.fragment;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import kr.blogspot.ovsoce.allsearch.R;
 import kr.blogspot.ovsoce.allsearch.common.Log;
@@ -50,12 +52,14 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
     }
 
     private WebView mWebview;
+    private ProgressBar mProgressBar;
     @Override
     public void onInit() {
+        mProgressBar = (ProgressBar) getView().findViewById(R.id.webview_progressbar);
         mWebview = (WebView) getView().findViewById(R.id.webview);
         mWebview.getSettings().setJavaScriptEnabled(true);
-        mWebview.setWebChromeClient(new WebChromeClient());
-        mWebview.setWebViewClient(new WebViewClient());
+        mWebview.setWebChromeClient(new WebChromeClientCustom());
+        mWebview.setWebViewClient(new WebViewClientCustom());
     }
 
     @Override
@@ -63,6 +67,34 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
         Log.d("url = " + url);
         if(getView() != null) {
             mWebview.loadUrl(url);
+        }
+    }
+
+    private class WebChromeClientCustom extends WebChromeClient {
+        @Override
+        public void onProgressChanged(WebView view, int newProgress) {
+            mProgressBar.setProgress(newProgress);
+            super.onProgressChanged(view, newProgress);
+
+        }
+    }
+    private class WebViewClientCustom extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            mProgressBar.setVisibility(View.GONE);
+            mProgressBar.setProgress(0);
+            super.onPageFinished(view, url);
         }
     }
 }
