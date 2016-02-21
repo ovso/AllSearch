@@ -217,6 +217,11 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     }
 
     @Override
+    public void showToast(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void onBackPressed() {
         if (mSearchView.isSearchOpen()) {
             mSearchView.closeSearch();
@@ -235,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         if(isExit) {
             super.onBackPressed();
         } else {
-            Toast.makeText(getApplicationContext(), R.string.app_name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.text_exit_app, Toast.LENGTH_SHORT).show();
             isExit = true;
         }
         mSearchView.postDelayed(new Runnable() {

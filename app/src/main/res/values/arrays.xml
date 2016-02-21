@@ -23,7 +23,7 @@
         <item>http://m.korea.kr</item>
     </string-array>
     <string-array name="section_search_url">
-        <item>https://search.naver.com/search.naver?query=</item>
+        <item>https://m.search.naver.com/search.naver?query=</item>
         <item>http://search.daum.net/search?q=</item>
         <item>https://www.google.co.kr/search?q=</item>
         <item>http://search.zum.com/search.zum?query=</item>
