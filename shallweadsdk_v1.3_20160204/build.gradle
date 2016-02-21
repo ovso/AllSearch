@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('shallweadsdk_v1.3_20160204.jar'))
