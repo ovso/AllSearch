@@ -1,6 +1,7 @@
 package kr.blogspot.ovsoce.allsearch.main.fragment;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import kr.blogspot.ovsoce.allsearch.R;
@@ -53,6 +55,7 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
 
     private WebView mWebview;
     private ProgressBar mProgressBar;
+    //private ImageView mLoadingImg;
     @Override
     public void onInit() {
         mProgressBar = (ProgressBar) getView().findViewById(R.id.webview_progressbar);
