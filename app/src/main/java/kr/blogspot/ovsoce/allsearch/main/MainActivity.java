@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -125,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         });
 
         findViewById(R.id.fab).setOnClickListener(this);
-
     }
 
     @Override
@@ -214,7 +212,8 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     @Override
     public void showSnackbar(String msg) {
         CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.main_content);
-        Snackbar.make(layout, msg,Snackbar.LENGTH_LONG).show();
+        Snackbar bar = Snackbar.make(layout, msg, Snackbar.LENGTH_LONG);
+        bar.show();
     }
 
     @Override

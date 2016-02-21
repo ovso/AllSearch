@@ -9,6 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </WebView>
+    <ImageView
+        android:id="@+id/img_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/ani_loading"
+        android:visibility="gone"
+        android:alpha="0.4"/>
     <ProgressBar
         android:id="@+id/webview_progressbar"
         android:layout_width="match_parent"

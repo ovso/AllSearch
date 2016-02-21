@@ -54,11 +54,12 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
     }
 
     private WebView mWebview;
-    private ProgressBar mProgressBar;
-    //private ImageView mLoadingImg;
+    //private ProgressBar mProgressBar;
+    private ImageView mLoadingImg;
     @Override
     public void onInit() {
-        mProgressBar = (ProgressBar) getView().findViewById(R.id.webview_progressbar);
+        //mProgressBar = (ProgressBar) getView().findViewById(R.id.webview_progressbar);
+        mLoadingImg = (ImageView) getView().findViewById(R.id.img_loading);
         mWebview = (WebView) getView().findViewById(R.id.webview);
         mWebview.getSettings().setJavaScriptEnabled(true);
         mWebview.setWebChromeClient(new WebChromeClientCustom());
@@ -76,7 +77,7 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
     private class WebChromeClientCustom extends WebChromeClient {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
-            mProgressBar.setProgress(newProgress);
+            //mProgressBar.setProgress(newProgress);
             super.onProgressChanged(view, newProgress);
 
         }
@@ -89,14 +90,19 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            mProgressBar.setVisibility(View.VISIBLE);
+            //mProgressBar.setVisibility(View.VISIBLE);
+            mLoadingImg.setVisibility(View.VISIBLE);
+            ((AnimationDrawable)mLoadingImg.getBackground()).start();
             super.onPageStarted(view, url, favicon);
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            mProgressBar.setVisibility(View.GONE);
-            mProgressBar.setProgress(0);
+            //mProgressBar.setVisibility(View.GONE);
+            //mProgressBar.setProgress(0);
+            mLoadingImg.setVisibility(View.GONE);
+            ((AnimationDrawable)mLoadingImg.getBackground()).stop();
+
             super.onPageFinished(view, url);
         }
     }
