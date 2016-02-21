@@ -1,1 +1,1 @@
-include ':app', ':SearchView', ':shallweadsdk_v1.3_20160204'
+include ':app', ':SearchView'
