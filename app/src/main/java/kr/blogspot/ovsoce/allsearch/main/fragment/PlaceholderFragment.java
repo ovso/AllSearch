@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -94,6 +96,12 @@ public class PlaceholderFragment extends Fragment implements PlaceholderPresente
             mLoadingImg.setVisibility(View.VISIBLE);
             ((AnimationDrawable)mLoadingImg.getBackground()).start();
             super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+            view.loadUrl("file:///android_asset/network_off.html");
+            super.onReceivedError(view, request, error);
         }
 
         @Override
