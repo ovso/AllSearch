@@ -206,11 +206,14 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     public void hideToolbar() {
         findViewById(R.id.toolbar_container).setVisibility(View.GONE);
         mSearchView.closeSearch();
+
+        ((ImageView)findViewById(R.id.fab)).setImageResource(R.drawable.ic_action_search_off);
     }
 
     @Override
     public void showToolbar() {
         findViewById(R.id.toolbar_container).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.fab)).setImageResource(R.drawable.ic_action_search);
     }
 
     @Override
@@ -228,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     @Override
     public void showSplash() {
         Intent intent = new Intent(this, SplashActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
