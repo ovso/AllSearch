@@ -16,6 +16,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void onCreate(Context context) {
+        mView.showSplash();
         mView.onInit();
         mView.setViewPager();
         mView.setToolbarTitle(mModel.getToolbarTitle(context));

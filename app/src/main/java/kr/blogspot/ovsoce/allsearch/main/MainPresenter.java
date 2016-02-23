@@ -22,5 +22,6 @@ public interface MainPresenter {
         void showToolbar();
         void showSnackbar(String msg);
         void showToast(String msg);
+        void showSplash();
     }
 }

@@ -1,6 +1,7 @@
 package kr.blogspot.ovsoce.allsearch.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import kr.blogspot.ovsoce.allsearch.R;
 import kr.blogspot.ovsoce.allsearch.common.Log;
 import kr.blogspot.ovsoce.allsearch.main.fragment.PlaceholderFragment;
+import kr.blogspot.ovsoce.allsearch.splash.SplashActivity;
 
 public class MainActivity extends AppCompatActivity implements MainPresenter.View, View.OnClickListener {
 
@@ -219,6 +221,13 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     @Override
     public void showToast(String msg) {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSplash() {
+        Intent intent = new Intent(this, SplashActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     @Override
