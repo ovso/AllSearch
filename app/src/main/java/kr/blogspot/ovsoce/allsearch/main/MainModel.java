@@ -34,5 +34,12 @@ public class MainModel {
             return context.getString(R.string.text_search_sync);
         }
     }
+    public void setSwipe(Context context) {
+        MyApplication app = ((MyApplication)context.getApplicationContext());
+        app.setSwipe(!app.isSwipe());
 
+    }
+    public boolean isSwipe(Context context) {
+        return ((MyApplication)context.getApplicationContext()).isSwipe();
+    }
 }

@@ -47,6 +47,14 @@ public class MainPresenterImpl implements MainPresenter {
             } else {
                 mView.hideToolbar();
             }
+        } else if(view.getId() == R.id.fab_lock) {
+            mModel.setSwipe(view.getContext());
+            boolean isSwipe = mModel.isSwipe(view.getContext());
+            if(isSwipe) {
+                mView.showSwipeUnlock(isSwipe);
+            } else {
+                mView.showSwipeLock(isSwipe);
+            }
         }
     }
 

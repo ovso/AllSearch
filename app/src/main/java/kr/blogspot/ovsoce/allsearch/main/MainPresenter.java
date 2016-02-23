@@ -23,5 +23,7 @@ public interface MainPresenter {
         void showSnackbar(String msg);
         void showToast(String msg);
         void showSplash();
+        void showSwipeLock(boolean isSwipe);
+        void showSwipeUnlock(boolean isSwipe);
     }
 }

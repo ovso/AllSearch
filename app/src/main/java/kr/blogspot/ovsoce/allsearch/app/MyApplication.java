@@ -26,5 +26,11 @@ public class MyApplication extends Application {
         mQuery = null;
         searchMode = true;
     }
-
+    private boolean mSwipe = true;
+    public void setSwipe(boolean swipe) {
+        mSwipe = swipe;
+    }
+    public boolean isSwipe() {
+        return mSwipe;
+    }
 }

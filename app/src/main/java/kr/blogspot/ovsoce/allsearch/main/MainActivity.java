@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    private ViewPagerCustom mViewPager;
 
     private MainPresenter mPresenter;
     @Override
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
 
         mSearchView = (MaterialSearchView) findViewById(R.id.search_view);
         mSearchView.setHint(getString(R.string.text_searchview_hint));
-        mSearchView.setHintTextColor(0x8833dd);
+        mSearchView.setHintTextColor(0x000000);
         //mSearchView.setBackgroundColor(android.R.color.background_dark);
 
 
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         });
 
         findViewById(R.id.fab).setOnClickListener(this);
+        findViewById(R.id.fab_lock).setOnClickListener(this);
     }
 
     @Override
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), getApplicationContext());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPagerCustom) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -228,6 +230,20 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
         Intent intent = new Intent(this, SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    @Override
+    public void showSwipeLock(boolean isSwipe) {
+        Log.d("isSwipe = " + isSwipe);
+        mViewPager.setPagingEnabled(isSwipe);
+        ((ImageView)findViewById(R.id.fab_lock)).setImageResource(R.drawable.ic_action_lock);
+    }
+
+    @Override
+    public void showSwipeUnlock(boolean isSwipe) {
+        Log.d("isSwipe = " + isSwipe);
+        mViewPager.setPagingEnabled(isSwipe);
+        ((ImageView)findViewById(R.id.fab_lock)).setImageResource(R.drawable.ic_action_lock_open);
     }
 
     @Override
