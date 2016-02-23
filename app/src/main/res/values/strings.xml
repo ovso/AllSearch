@@ -3,8 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-    <string name="text_search_sync">모든 검색</string>
-    <string name="text_search_multiple">모든 검색</string>
+    <string name="text_search_sync">모든검색 모드</string>
+    <string name="text_search_multiple">다중검색 모드</string>
     <string name="text_searchview_hint">모든 사이트에서 동시에 검색 가능합니다.</string>
     <string name="text_exit_app">한번 더 누르면 종료됩니다</string>
+    <string name="text_swipe_lock">스와이프 잠김</string>
+    <string name="text_swipe_unlock">스와이프 풀림</string>
 </resources>

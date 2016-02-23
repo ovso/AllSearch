@@ -234,14 +234,12 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
 
     @Override
     public void showSwipeLock(boolean isSwipe) {
-        Log.d("isSwipe = " + isSwipe);
         mViewPager.setPagingEnabled(isSwipe);
         ((ImageView)findViewById(R.id.fab_lock)).setImageResource(R.drawable.ic_action_lock);
     }
 
     @Override
     public void showSwipeUnlock(boolean isSwipe) {
-        Log.d("isSwipe = " + isSwipe);
         mViewPager.setPagingEnabled(isSwipe);
         ((ImageView)findViewById(R.id.fab_lock)).setImageResource(R.drawable.ic_action_lock_open);
     }
