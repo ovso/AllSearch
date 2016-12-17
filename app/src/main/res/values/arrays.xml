@@ -7,9 +7,11 @@
         <item>줌</item>
         <item>Bing</item>
         <item>드림위즈</item>
+<!--
         <item>문화포털(정부)</item>
         <item>복지로(정부)</item>
         <item>정책브리핑(정부)</item>
+-->
     </string-array>
     <string-array name="section_url">
         <item>http://www.naver.com</item>
@@ -18,9 +20,11 @@
         <item>http://www.zum.com</item>
         <item>http://www.bing.com</item>
         <item>http://www.dreamwiz.com</item>
+<!--
         <item>http://m.culture.go.kr/mobile</item>
         <item>http://m.bokjiro.go.kr</item>
         <item>http://m.korea.kr</item>
+-->
     </string-array>
     <string-array name="section_search_url">
         <item>https://m.search.naver.com/search.naver?query=</item>
@@ -29,8 +33,10 @@
         <item>http://search.zum.com/search.zum?query=</item>
         <item>http://www.bing.com/search?q=</item>
         <item>http://m.search.dreamwiz.com/?sword=</item>
+<!--
         <item>http://m.culture.go.kr/mobile/portal/search/searchCulture.do?searchTerm=</item>
         <item>http://m.bokjiro.go.kr/nwel/search/integratedSearch.do?query=</item>
         <item>http://m.korea.kr/totalSearch.do?keyword=</item>
+-->
     </string-array>
 </resources>

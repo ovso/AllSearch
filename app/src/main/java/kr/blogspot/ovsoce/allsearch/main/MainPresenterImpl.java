@@ -43,10 +43,10 @@ public class MainPresenterImpl implements MainPresenter {
             //mView.setToolbarTitle(mModel.getToolbarTitle(view.getContext()));
             if(searchMode) {
                 mView.showToolbar();
-                mView.showToast(view.getContext().getString(R.string.text_search_sync));
+                //mView.showToast(view.getContext().getString(R.string.text_search_sync));
             } else {
                 mView.hideToolbar();
-                mView.showToast(view.getContext().getString(R.string.text_search_sync));
+                //mView.showToast(view.getContext().getString(R.string.text_search_sync));
             }
         } else if(view.getId() == R.id.fab_lock) {
             mModel.setSwipe(view.getContext());
